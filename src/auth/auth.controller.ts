@@ -4,7 +4,7 @@ import { AuthService } from './auth.service';
 import { LocalGuard } from './local.guard';
 import { CreateUserDto } from '../users/dto/create-user.dto';
 
-@Controller('/')
+@Controller()
 export class AuthController {
   constructor(
     private usersService: UsersService,
@@ -18,7 +18,7 @@ export class AuthController {
   @UseGuards(LocalGuard)
   @Post('signin')
   async signin(@Req() req) {
-    /* Генерируем для пользователя JWT-токен */
+     //Генерируем для пользователя JWT-токен */
     return this.authService.auth(req.user);
   }
 

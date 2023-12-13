@@ -26,7 +26,7 @@ export class UsersService {
     const user = this.userRepository.create(сreateUserDto);
     const { password, ...result } = user;
     const hash = await bcrypt.hash(password, 10);
-    return await this.userRepository.save({ ...result, password: hash });
+    return await this.userRepository.save({ password: hash, ...result });
   }
 
   //Поиск всех пользователей
