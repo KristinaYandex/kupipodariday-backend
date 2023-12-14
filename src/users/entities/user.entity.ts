@@ -10,12 +10,11 @@ import { Wish } from '../../wishes/entities/wish.entity';
 import { Offer } from '../../offers/entities/offer.entity';
 import { Wishlist } from '../../wishlists/entities/wishlist.entity';
 import {
-  Min,
-  Max,
   IsString,
   IsUrl,
   IsNotEmpty,
   IsEmail,
+  Length
 } from 'class-validator';
 
 @Entity()
@@ -32,14 +31,12 @@ export class User {
   @Column({ type: 'varchar', unique: true })
   @IsString()
   @IsNotEmpty()
-  @Min(2)
-  @Max(30)
+  @Length(2, 30)
   username: string;
 
   @Column({ type: 'varchar', default: 'Пока ничего не рассказал о себе' })
   @IsString()
-  @Min(2)
-  @Max(200)
+  @Length(2, 200)
   about: string;
 
   @Column({ default: 'https://i.pravatar.cc/300' })
