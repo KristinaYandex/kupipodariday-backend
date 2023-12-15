@@ -14,7 +14,8 @@ import {
   IsUrl,
   IsNotEmpty,
   IsEmail,
-  Length
+  Length,
+  IsOptional
 } from 'class-validator';
 
 @Entity()
@@ -34,9 +35,15 @@ export class User {
   @Length(2, 30)
   username: string;
 
-  @Column({ type: 'varchar', default: 'Пока ничего не рассказал о себе' })
+  /*@Column({ type: 'varchar', default: 'Пока ничего не рассказал о себе' })
   @IsString()
   @Length(2, 200)
+  about: string;*/
+
+  @IsString()
+  @IsOptional()
+  @Length(1, 200)
+  @Column({ default: 'Пока ничего не рассказал о себе' })
   about: string;
 
   @Column({ default: 'https://i.pravatar.cc/300' })

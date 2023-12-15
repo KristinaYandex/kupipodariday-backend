@@ -11,6 +11,7 @@ import {
 import { JwtAuthGuard } from '../auth/jwt.guard';
 import { UsersService } from './users.service';
 import { UpdateUsertDto } from './dto/update-user.dto';
+import { FindUserDto } from './dto/find-user.dto';
 import { User } from './entities/user.entity';
 import { Wish } from '../wishes/entities/wish.entity';
 
@@ -40,7 +41,8 @@ export class UsersController {
   //Поиск пользователя по имени
   @Get(':username')
   async findByUserName(@Param('username') username: string): Promise<User> {
-    return await this.usersService.findByUserName(username);
+    const user = await this.usersService.findByUserName(username);
+    return user;
   }
 
   //Поиск подарков пользователя
@@ -52,7 +54,7 @@ export class UsersController {
 
   //Поиск пользователя по email
   @Post('find')
-  async findByUserEmail(@Body() query: string): Promise<User[]> {
-    return await this.usersService.findByUserEmail(query);
+  async findByMany(@Body() findUsertDto: FindUserDto): Promise<User[]> {
+    return await this.usersService.findMany(findUsertDto);
   }
 }

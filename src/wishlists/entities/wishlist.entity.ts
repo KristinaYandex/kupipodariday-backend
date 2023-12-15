@@ -10,7 +10,7 @@ import {
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 import { Wish } from '../../wishes/entities/wish.entity';
-import { Min, Max, IsString, IsUrl } from 'class-validator';
+import { IsString, IsUrl, Length, IsOptional, MaxLength, MinLength } from 'class-validator';
 
 @Entity()
 export class Wishlist {
@@ -25,13 +25,16 @@ export class Wishlist {
 
   @Column({ type: 'varchar' })
   @IsString()
-  @Min(1)
-  @Max(250)
+  @Length(1, 250)
   name: string;
 
-  @Column({ type: 'varchar', nullable: true })
-  @IsString()
-  @Max(1500)
+  /*@Column({ default: '' })
+  @IsOptional()
+  @Length(0, 1500)
+  description: string;*/
+
+  @Column({ default: '' })
+  @Length(2, 1500)
   description: string;
 
   @Column()

@@ -9,7 +9,7 @@ import {
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 import { Offer } from '../../offers/entities/offer.entity';
-import { Min, Max, IsString, IsUrl } from 'class-validator';
+import { IsString, IsUrl, Length } from 'class-validator';
 
 @Entity()
 export class Wish {
@@ -24,8 +24,7 @@ export class Wish {
 
   @Column({ type: 'varchar' })
   @IsString()
-  @Min(1)
-  @Max(250)
+  @Length(1, 250)
   name: string;
 
   @Column()
@@ -47,8 +46,7 @@ export class Wish {
 
   @Column({ type: 'varchar' })
   @IsString()
-  @Min(1)
-  @Max(1024)
+  @Length(1, 1024)
   description: string;
 
   @OneToMany(() => Offer, (offer) => offer.item)

@@ -1,9 +1,8 @@
-import { IsString, Min, Max, IsUrl, IsNumber } from 'class-validator';
+import { IsString, Min, IsUrl, IsNumber, Length } from 'class-validator';
 
 export class CreateWishDto {
   @IsString()
-  @Min(1)
-  @Max(250)
+  @Length(1, 250)
   name: string;
 
   @IsUrl()
@@ -17,10 +16,8 @@ export class CreateWishDto {
   price: number;
 
   @IsString()
-  @Min(1)
-  @Max(1024)
+  @Length(1, 1024)
   description: string;
 
-  @IsNumber()
   raised?: number;
 }

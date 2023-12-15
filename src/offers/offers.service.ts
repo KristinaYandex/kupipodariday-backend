@@ -37,7 +37,7 @@ export class OffersService {
     }
 
     //Обновляем данные о подарке с учетом собранных средств
-    await this.wishesService.updateOne(wish.id, { raised: sum }, user.id);
+    await this.wishesService.updateOne(wish.id, { raised: +sum }, wish.owner.id);
 
     //Сохраняем новый offer в базе данных
     await this.offerRepository.save({ ...createOfferDto, user, item: wish });

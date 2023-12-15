@@ -14,8 +14,13 @@ export class CreateUserDto {
   @IsOptional()
   username: string;
 
-  @Length(2, 200)
+  /*@Length(2, 200)
   @IsOptional()
+  about?: string;*/
+
+  @IsString()
+  @IsOptional()
+  @Length(1, 200)
   about?: string;
 
   @IsUrl()

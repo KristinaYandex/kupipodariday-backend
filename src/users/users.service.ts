@@ -11,6 +11,7 @@ import { Wish } from '../wishes/entities/wish.entity';
 import { User } from '../users/entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUsertDto } from './dto/update-user.dto';
+import { FindUserDto } from './dto/find-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -60,12 +61,22 @@ export class UsersService {
     return user;
   }
 
+  //Поиск пользователя по email и username
+  async findQuery(query): Promise<User[]> {
+    const user = await this.userRepository.find({
+      where: [{ email: query }, { username: query }],
+    });
+    if (user.length > 0) {
+      return user;
+    } else return undefined;
+  }
+
   //Обновление информации о пользователе
   async updateOne(userId: number, updateUsertDto: UpdateUsertDto) {
     const user = await this.findById(userId);
 
     if (updateUsertDto.username && updateUsertDto.username !== user.username) {
-      const username = await this.findByUserName(updateUsertDto.username);
+      const username = await this.findQuery(updateUsertDto.username);
 
       if (username) {
         throw new BadRequestException(
@@ -75,7 +86,7 @@ export class UsersService {
     }
 
     if (updateUsertDto.email && updateUsertDto.email !== user.email) {
-      const useremail = await this.findByUserEmail(updateUsertDto.email);
+      const useremail = await this.findQuery(updateUsertDto.email);
 
       if (useremail) {
         throw new BadRequestException(
@@ -112,9 +123,9 @@ export class UsersService {
   }
 
   //Поиск пользователей по имени или почте
-  async findMany(query: string) {
+  async findMany({ query }: FindUserDto): Promise<User[]> {
     const user = await this.userRepository.find({
-      where: [{ username: Like(`%${query}%`) }, { email: Like(`%${query}%`) }],
+      where: [{ username: query }, { email: query }],
     });
     if (!user) {
       throw new NotFoundException('Пользователь не найден');
