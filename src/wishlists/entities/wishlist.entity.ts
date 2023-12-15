@@ -33,7 +33,7 @@ export class Wishlist {
   @Length(0, 1500)
   description: string;*/
 
-  @Column({ default: '' })
+  @Column({ default: '', nullable: true })
   @Length(2, 1500)
   description: string;
 

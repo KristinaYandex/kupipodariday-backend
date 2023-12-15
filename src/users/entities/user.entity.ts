@@ -15,7 +15,8 @@ import {
   IsNotEmpty,
   IsEmail,
   Length,
-  IsOptional
+  IsOptional,
+  IsEmpty
 } from 'class-validator';
 
 @Entity()
@@ -41,8 +42,9 @@ export class User {
   about: string;*/
 
   @IsString()
-  @IsOptional()
-  @Length(1, 200)
+  /*@IsOptional()*/
+  @IsEmpty()
+  @Length(2, 200)
   @Column({ default: 'Пока ничего не рассказал о себе' })
   about: string;
 

@@ -27,7 +27,7 @@ export class WishListsService {
     return await this.wishlistsRepository.save({
       ...сreateWishlistDto,
       owner: user,
-      items: wishes,
+      itemsId: wishes,
     });
   }
 

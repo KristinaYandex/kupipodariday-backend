@@ -4,7 +4,7 @@ export class CreateOfferDto {
   @IsNumber()
   itemId: number;
 
-  @IsNumber()
+  /*@IsNumber()*/
   amount: number;
 
   @IsBoolean()

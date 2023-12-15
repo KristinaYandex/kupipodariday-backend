@@ -123,4 +123,8 @@ export class WishesService {
       order: { copied: 'DESC' },
     });
   }
+
+  async find(arg: any) {
+    return await this.wishRepository.find(arg)
+  }
 }
