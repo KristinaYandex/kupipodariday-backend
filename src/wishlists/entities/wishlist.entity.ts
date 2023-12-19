@@ -5,6 +5,7 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
+  OneToMany,
   ManyToMany,
   JoinTable,
 } from 'typeorm';

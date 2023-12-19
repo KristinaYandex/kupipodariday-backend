@@ -22,7 +22,11 @@ export class WishListsController {
   // Создать новый вишлист
   @Post()
   async create(@Req() req, @Body() createWishlistDto: CreateWishlistDto) {
-    return await this.wishListsService.create(req.user, createWishlistDto);
+    try {
+      return await this.wishListsService.create(req.user, createWishlistDto);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   //Получить все вишлисты
