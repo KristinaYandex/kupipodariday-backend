@@ -1,7 +1,7 @@
 {
   "name": "kupipodariday",
   "version": "0.0.1",
-  "description": "",
+  "description": "Backend для сервиса вишлистов",
   "author": "Ушакова Кристина",
   "private": true,
   "license": "UNLICENSED",
