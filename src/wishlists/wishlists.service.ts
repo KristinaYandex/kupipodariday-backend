@@ -19,7 +19,7 @@ export class WishListsService {
     private readonly wishesService: WishesService,
   ) {}
 
-  async create(user: User, сreateWishlistDto: CreateWishlistDto) {
+  /*async create(user: User, сreateWishlistDto: CreateWishlistDto) {
     const wishes = await this.wishesService.findWishes(
       сreateWishlistDto.itemsId,
     );
@@ -29,6 +29,22 @@ export class WishListsService {
       owner: user,
       itemsId: wishes,
     });
+  }*/
+
+  async create(user: User, сreateWishlistDto: CreateWishlistDto) {
+    const { itemsId } = сreateWishlistDto;
+    const wishes = itemsId.map((id) => {
+      return this.wishesService.findOne(id);
+    });
+
+    return await Promise.all(wishes).then((items) => {
+      const wishlist = this.wishlistsRepository.create({
+      ...сreateWishlistDto,
+      owner: user,
+      items,
+      })
+      return this.wishlistsRepository.save(wishlist);
+    }) 
   }
 
   async findAll() {

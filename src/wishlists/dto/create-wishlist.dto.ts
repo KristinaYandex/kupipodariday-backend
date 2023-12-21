@@ -1,4 +1,4 @@
-import { IsUrl, IsArray, Length, IsOptional, IsNumber } from 'class-validator';
+import { IsUrl, IsArray, Length, IsOptional } from 'class-validator';
 import { Transform } from 'class-transformer';
 export class CreateWishlistDto {
   @Length(1, 250)
@@ -14,5 +14,5 @@ export class CreateWishlistDto {
   @Transform((params) => (params.value?.length > 0 ? params.value : undefined))
   @IsOptional()
   @Length(2, 1500)
-  description?: string
+  description?: string;
 }

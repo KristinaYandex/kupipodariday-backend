@@ -15,8 +15,7 @@ import {
   IsNotEmpty,
   IsEmail,
   Length,
-  IsOptional,
-  IsEmpty
+  IsEmpty,
 } from 'class-validator';
 
 @Entity()

@@ -1,7 +1,7 @@
 import {
   Injectable,
   NotFoundException,
-  ForbiddenException
+  ForbiddenException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -37,7 +37,11 @@ export class OffersService {
     }
 
     //Обновляем данные о подарке с учетом собранных средств
-    await this.wishesService.updateOne(wish.id, { raised: +sum }, wish.owner.id);
+    await this.wishesService.updateOne(
+      wish.id,
+      { raised: +sum },
+      wish.owner.id,
+    );
 
     //Сохраняем новый offer в базе данных
     return this.offerRepository.save({ ...createOfferDto, user, item: wish });

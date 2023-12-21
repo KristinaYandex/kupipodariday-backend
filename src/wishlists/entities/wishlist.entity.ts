@@ -5,13 +5,12 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
-  OneToMany,
   ManyToMany,
   JoinTable,
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 import { Wish } from '../../wishes/entities/wish.entity';
-import { IsString, IsUrl, Length, IsOptional, MaxLength, MinLength } from 'class-validator';
+import { IsString, IsUrl, Length } from 'class-validator';
 
 @Entity()
 export class Wishlist {

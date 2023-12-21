@@ -125,6 +125,6 @@ export class WishesService {
   }
 
   async find(arg: any) {
-    return await this.wishRepository.find(arg)
+    return await this.wishRepository.find(arg);
   }
 }

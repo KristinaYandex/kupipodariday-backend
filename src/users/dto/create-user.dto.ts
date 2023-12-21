@@ -19,11 +19,10 @@ export class CreateUserDto {
   @IsOptional()
   about?: string;*/
 
-
   @Transform((params) => (params.value?.length > 0 ? params.value : undefined))
   @IsOptional()
   @Length(2, 200)
-  about?: string
+  about?: string;
 
   /*@IsEmpty()
   @Length(2, 200)
