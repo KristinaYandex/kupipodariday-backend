@@ -5,12 +5,12 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import * as bcrypt from 'bcrypt';
 import { Wish } from '../wishes/entities/wish.entity';
 import { User } from '../users/entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUsertDto } from './dto/update-user.dto';
 import { FindUserDto } from './dto/find-user.dto';
+import { hashHelpers } from '../helpers/helpers';
 
 @Injectable()
 export class UsersService {
@@ -25,7 +25,7 @@ export class UsersService {
   async create(сreateUserDto: CreateUserDto): Promise<User> {
     const user = this.userRepository.create(сreateUserDto);
     const { password, ...result } = user;
-    const hash = await bcrypt.hash(password, 10);
+    const hash = await hashHelpers.createHash(password);
     return await this.userRepository.save({ password: hash, ...result });
   }
 
@@ -95,7 +95,7 @@ export class UsersService {
     }
 
     if (updateUsertDto.password) {
-      const hash = await bcrypt.hash(updateUsertDto.password, 10);
+      const hash = await hashHelpers.createHash(updateUsertDto.password);
       const newUser = await this.userRepository.update(userId, {
         ...updateUsertDto,
         password: hash,

@@ -16,17 +16,22 @@ import {
   IsEmail,
   Length,
   IsEmpty,
+  IsInt, 
+  IsDate, 
 } from 'class-validator';
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
+  @IsInt()
   id: number;
 
   @CreateDateColumn()
+  @IsDate()
   createdAt: Date;
 
   @UpdateDateColumn()
+  @IsDate()
   updatedAt: Date;
 
   @Column({ type: 'varchar', unique: true })
@@ -35,13 +40,7 @@ export class User {
   @Length(2, 30)
   username: string;
 
-  /*@Column({ type: 'varchar', default: 'Пока ничего не рассказал о себе' })
   @IsString()
-  @Length(2, 200)
-  about: string;*/
-
-  @IsString()
-  /*@IsOptional()*/
   @IsEmpty()
   @Length(2, 200)
   @Column({ default: 'Пока ничего не рассказал о себе' })

@@ -10,28 +10,26 @@ import {
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 import { Wish } from '../../wishes/entities/wish.entity';
-import { IsString, IsUrl, Length } from 'class-validator';
+import { IsString, IsUrl, Length, IsInt, IsDate } from 'class-validator';
 
 @Entity()
 export class Wishlist {
   @PrimaryGeneratedColumn()
+  @IsInt()
   id: number;
 
   @CreateDateColumn()
+  @IsDate()
   createdAt: Date;
 
   @UpdateDateColumn()
+  @IsDate()
   updatedAt: Date;
 
   @Column({ type: 'varchar' })
   @IsString()
   @Length(1, 250)
   name: string;
-
-  /*@Column({ default: '' })
-  @IsOptional()
-  @Length(0, 1500)
-  description: string;*/
 
   @Column({ default: '', nullable: true })
   @Length(2, 1500)

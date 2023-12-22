@@ -27,13 +27,13 @@ export class WishesController {
 
   //Получить последние 40 подарков
   @Get('last')
-  async findlastWishes() {
+  async findLastWishes() {
     return await this.wishesService.lastWishes();
   }
 
   //Получить 20 подарков, которые копируют чаще всего
   @Get('top')
-  async findtopWishes() {
+  async findTopWishes() {
     return await this.wishesService.topWishes();
   }
 

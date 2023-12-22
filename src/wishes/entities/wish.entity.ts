@@ -9,17 +9,20 @@ import {
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
 import { Offer } from '../../offers/entities/offer.entity';
-import { IsString, IsUrl, Length } from 'class-validator';
+import { IsString, IsUrl, Length, IsInt, IsDate, } from 'class-validator';
 
 @Entity()
 export class Wish {
   @PrimaryGeneratedColumn()
+  @IsInt()
   id: number;
 
   @CreateDateColumn()
+  @IsDate()
   createdAt: Date;
 
   @UpdateDateColumn()
+  @IsDate()
   updatedAt: Date;
 
   @Column({ type: 'varchar' })

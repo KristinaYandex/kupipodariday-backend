@@ -6,18 +6,22 @@ import {
   Column,
   ManyToOne,
 } from 'typeorm';
+import { IsInt, IsDate, IsBoolean } from 'class-validator';
 import { User } from '../../users/entities/user.entity';
 import { Wish } from '../../wishes/entities/wish.entity';
 
 @Entity()
 export class Offer {
   @PrimaryGeneratedColumn()
+  @IsInt()
   id: number;
 
   @CreateDateColumn()
+  @IsDate()
   createdAt: Date;
 
   @UpdateDateColumn()
+  @IsDate()
   updatedAt: Date;
 
   @ManyToOne(() => User, (user) => user.offers)
@@ -30,5 +34,6 @@ export class Offer {
   amount: number;
 
   @Column({ type: 'boolean', default: false })
+  @IsBoolean()
   hidden: boolean;
 }
