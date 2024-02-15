@@ -15,21 +15,27 @@
 ![Регистрация](https://github.com/KristinaYandex/kupipodariday-backend/assets/115872997/dea873c0-b47a-4542-9211-955dfa7ac976)
 ![Авторизация](https://github.com/KristinaYandex/kupipodariday-backend/assets/115872997/722b00bd-044d-4b8e-9837-19b129119879)
 
+
 Добавление подарка
 ![Добавление подарка](https://github.com/KristinaYandex/kupipodariday-backend/assets/115872997/f4d1a41d-550d-492e-af13-9970eda17737)
+
 
 Ленты созданных подарков и коллекции
 ![Подарки - лента](https://github.com/KristinaYandex/kupipodariday-backend/assets/115872997/bd9615da-149b-4416-862d-9e81f0b480d0)
 ![Подарки - коллекция](https://github.com/KristinaYandex/kupipodariday-backend/assets/115872997/3b191e27-cba9-4254-93fc-825d22864a4f)
 
+
 Просмотр информации о подарке, сбор средств на подарок и список поддержваших (скинувшихся на подарок)
 ![Информация о подарке](https://github.com/KristinaYandex/kupipodariday-backend/assets/115872997/6c8f81cb-8bdf-4531-b997-c3422be53f58)
+
 
 Копирование чужого подарка в свой вишлист
 ![Копирование подарка](https://github.com/KristinaYandex/kupipodariday-backend/assets/115872997/6b87821c-2aea-44b9-8f01-ffc13a7b15ed)
 
+
 Редактирование профиля
 ![Профиль](https://github.com/KristinaYandex/kupipodariday-backend/assets/115872997/5e3605c7-3347-4798-8ce3-bbea546bcdeb)
+
 
 Поиск пользователей и просмотр их профиля
 ![Поиск других пользователей](https://github.com/KristinaYandex/kupipodariday-backend/assets/115872997/a52d873d-4d99-404a-a83a-6ec53d8088f3)
