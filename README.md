@@ -20,7 +20,7 @@
 
 Ленты созданных подарков и коллекции
 ![Подарки - лента](https://github.com/KristinaYandex/kupipodariday-backend/assets/115872997/bd9615da-149b-4416-862d-9e81f0b480d0)
-![Подарки - коллекция](https://github.com/KristinaYandex/kupipodariday-backend/assets/115872997/bf4f5a55-4a7f-4327-bd73-049dd0b7c258)
+![Подарки - коллекция](https://github.com/KristinaYandex/kupipodariday-backend/assets/115872997/3b191e27-cba9-4254-93fc-825d22864a4f)
 
 Просмотр информации о подарке, сбор средств на подарок и список поддержваших (скинувшихся на подарок)
 ![Информация о подарке](https://github.com/KristinaYandex/kupipodariday-backend/assets/115872997/6c8f81cb-8bdf-4531-b997-c3422be53f58)
